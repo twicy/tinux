@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "common.h": "c",
+        "types.h": "c"
+    }
+}

@@ -4,6 +4,7 @@ C_SOURCES = $(shell find . -name "*.c")
 C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))
 S_SOURCES = $(shell find . -name "*.s")
 S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))
+KERNEL_NAME = TINUX_KERNEL
 
 CC = gcc
 LD = ld
@@ -25,16 +26,16 @@ all: $(S_OBJECTS) $(C_OBJECTS) link update_image
 
 link:
 	@echo 链接内核文件...
-	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o hx_kernel
+	$(LD) $(LD_FLAGS) $(S_OBJECTS) $(C_OBJECTS) -o $(KERNEL_NAME)
 
 .PHONY:clean
 clean:
-	$(RM) $(S_OBJECTS) $(C_OBJECTS) hx_kernel
+	$(RM) $(S_OBJECTS) $(C_OBJECTS) $(KERNEL_NAME)
 
 .PHONY:update_image
 update_image:
 	sudo mount floppy.img /mnt/kernel
-	sudo cp hx_kernel /mnt/kernel/hx_kernel
+	sudo cp $(KERNEL_NAME) /mnt/kernel/$(KERNEL_NAME)
 	sleep 1
 	sudo umount /mnt/kernel
 
