@@ -4,6 +4,19 @@
 #include "types.h"
 #define NUM_IDT_ENTRY 256
 
+#define MASTER_COMMAND_PORT 0x20
+#define MASTER_DATA_PORT 0x21
+#define SLAVE_COMMAND_PORT 0xA0
+#define SLAVE_DATA_PORT 0xA1
+
+#define MASTER_VEC_OFFSET 0x20
+#define SLAVE_VEC_OFFSET 0x28
+
+#define ICW1_ICW4 0x01 // ICW4 will be present
+#define ICW1_INIT 0x10
+#define ICW4_8086 0x01
+#define PIC_EOI 0x20
+
 void init_idt();
 
 typedef
@@ -84,5 +97,42 @@ void isr30();
 void isr31();
 
 void isr255();
+
+void irq_handler(pt_regs *regs);
+
+#define  IRQ0     32
+#define  IRQ1     33
+#define  IRQ2     34
+#define  IRQ3     35
+#define  IRQ4     36
+#define  IRQ5     37
+#define  IRQ6     38
+#define  IRQ7     39
+#define  IRQ8     40
+#define  IRQ9     41
+#define  IRQ10    42
+#define  IRQ11    43
+#define  IRQ12    44
+#define  IRQ13    45
+#define  IRQ14    46
+#define  IRQ15    47
+
+// IRQ: Interrupt Request
+void irq0();
+void irq1();
+void irq2();
+void irq3();
+void irq4();
+void irq5();
+void irq6();
+void irq7();
+void irq8();
+void irq9();
+void irq10();
+void irq11();
+void irq12();
+void irq13();
+void irq14();
+void irq15();
 
 #endif 	// INCLUDE_IDT_H_
