@@ -20,6 +20,8 @@ start:
     mov esp, STACK_TOP
     mov ebp, 0
     and esp, 0FFFFFFF0H
+    ; Reference: multiboot spec
+    ; the EBX register contains the physical address of a Multiboot information data structure
     mov [glb_mboot_ptr], ebx
     call kern_entry
 stop:

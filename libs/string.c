@@ -2,8 +2,8 @@
 #include "types.h"
 
 void *memcpy(void *dest, const void *src, size_t len) {
-    uint32_t *s = (uint32_t *)src;
-    const uint32_t *d = (uint32_t *)dest;
+    uint8_t *s = (uint8_t *)src;
+    const uint8_t *d = (uint8_t *)dest;
     
     for (; len != 0; len--) {
         *s++=*d++;
@@ -12,7 +12,7 @@ void *memcpy(void *dest, const void *src, size_t len) {
 }
 
 void *memset(void *src, int val, size_t len) {
-    uint32_t *s = (uint32_t *)src;
+    uint8_t *s = (uint8_t *)src;
     unsigned char *c = (unsigned char *)&val;
 
     for (; len != 0; len--) {
@@ -45,6 +45,14 @@ char *strcat(char *dest, const char *src) {
     return dest;
 }
 
+int strcmp(const char *str1, const char *str2) {
+    while (*str1 && *str2 && *str1 == *str2) {
+        str1++;
+        str2++;
+    }
+    return *str1 - *str2;
+}
+
 size_t strlen(const char *src)
 {
 	const char *eos = src;
@@ -53,4 +61,9 @@ size_t strlen(const char *src)
 	      ;
 
 	return (eos - src - 1);
+}
+
+void bzero(void *dest, size_t len)
+{
+	memset(dest, 0, len);
 }
