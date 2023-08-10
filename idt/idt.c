@@ -2,7 +2,7 @@
 #include "string.h"
 #include "idt.h"
 #include "console.h"
-#include "printk.h"
+#include <utils/kernel.h>
 #include <asm/io.h>
 
 idt_entry_t idt_entries[NUM_IDT_ENTRY];

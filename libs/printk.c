@@ -1,7 +1,7 @@
 #include "console.h"
 #include "string.h"
 #include "vargs.h"
-#include "printk.h"
+#include <utils/kernel.h>
 
 static int vsprintf(char *buff, const char *format, va_list args);
 

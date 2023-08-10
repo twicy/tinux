@@ -1,5 +1,5 @@
 #include "debug.h"
-#include "printk.h"
+#include <utils/kernel.h>
 
 static void print_stack_trace();
 

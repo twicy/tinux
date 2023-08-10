@@ -7,6 +7,11 @@ gdt_flush:
 	lgdt [eax]
     ; the above load the value in %eax into gdt register
 
+	; set PE bit in r0 register
+	mov eax, cr0
+	or eax, 0x1
+	mov cr0, eax
+
 	mov ax, 0x10
     ; each gdt_entry_t is 64 bit or 8 bytes in size
     ; 0x10 is the offset to kernel data segment

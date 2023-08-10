@@ -1,6 +1,7 @@
 #include <asm/io.h>
 #include "string.h"
 #include "elf.h"
+#include <utils/vmm.h>
 
 /**
  * ELF executable consist of an ELF header, followed by program header table
@@ -23,16 +24,16 @@ elf_t elf_from_multiboot(multiboot_t *mb)
 	uint32_t shstrtab = sh[mb->shndx].addr;
 	// for each entry
 	for (i = 0; i < mb->num; i++) {
-		const char *name = (const char *)(shstrtab + sh[i].name);
+		const char *name = (const char *)(shstrtab + sh[i].name) + PAGE_OFFSET;
 		// extract information from multiboot provided by GRUB
 		// this sections holds strings that represent the names associated with symbol table entries
 		if (strcmp(name, ".strtab") == 0) {
-			elf.strtab = (const char *)sh[i].addr;
+			elf.strtab = (const char *)sh[i].addr + PAGE_OFFSET;
 			elf.strtabsz = sh[i].size;
 		}
 		// this section holds a symbol table
 		if (strcmp(name, ".symtab") == 0) {
-			elf.symtab = (elf_symbol_t *)sh[i].addr;
+			elf.symtab = (elf_symbol_t *)sh[i].addr + PAGE_OFFSET;
 			elf.symtabsz = sh[i].size;
 		}
 	}

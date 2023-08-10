@@ -2,7 +2,7 @@
 #include <asm/io.h>
 #include "debug.h"
 #include "pmm.h"
-#include "printk.h"
+#include <utils/kernel.h>
 
 static uint32_t pmm_stack[PAGE_MAX_SIZE+1];
 static uint32_t pmm_stack_top;

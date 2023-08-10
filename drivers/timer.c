@@ -2,7 +2,7 @@
 #include "debug.h"
 #include <asm/io.h>
 #include "idt.h"
-#include "printk.h"
+#include <utils/kernel.h>
 
 void timer_callback(pt_regs *regs)
 {

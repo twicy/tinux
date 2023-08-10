@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "common.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "kernel.h": "c",
+        "vmm.h": "c"
     }
 }
