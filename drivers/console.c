@@ -1,5 +1,5 @@
 #include "console.h"
-#include "common.h"
+#include <asm/io.h>
 
 /*
 	VGA text mode framebuffer:

@@ -13,7 +13,7 @@ int kern_entry()
 	init_idt();
 
 	clear_console();
-	printk("Hello, OS kernel!\n");
+	printk("Hello, OOOS kernelllllll!\n");
 
 	init_timer(200);
 

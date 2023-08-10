@@ -3,7 +3,7 @@
 #include "idt.h"
 #include "console.h"
 #include "printk.h"
-#include "common.h"
+#include <asm/io.h>
 
 idt_entry_t idt_entries[NUM_IDT_ENTRY];
 idt_ptr_t idt_ptr;

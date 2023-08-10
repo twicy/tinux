@@ -1,6 +1,6 @@
 #include "timer.h"
 #include "debug.h"
-#include "common.h"
+#include <asm/io.h>
 #include "idt.h"
 #include "printk.h"
 

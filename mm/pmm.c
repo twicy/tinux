@@ -1,5 +1,5 @@
 #include "multiboot.h"
-#include "common.h"
+#include <asm/io.h>
 #include "debug.h"
 #include "pmm.h"
 #include "printk.h"
