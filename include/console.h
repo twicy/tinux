@@ -2,9 +2,10 @@
 #define INCLUDE_CONSOLE_H_
 
 #include "types.h"
+#include <utils/vmm.h>
 
-#define VGA_TEXT_BUF_START 0xB8000
-#define VGA_TEXT_BUF_END 0xBFFFF
+#define VGA_TEXT_BUF_START (0xB8000 + PAGE_OFFSET)
+#define VGA_TEXT_BUF_END (0xBFFFF + PAGE_OFFSET)
 #define VGA_CTRL_REGISTER 0x3D4
 #define VGA_DATA_REGISTER 0x3D5
 #define COLUMN_MAX 80

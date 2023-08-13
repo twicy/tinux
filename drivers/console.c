@@ -18,7 +18,7 @@
 
 static uint8_t cursor_x = 0;
 static uint8_t cursor_y = 0;
-static uint16_t *vga_text_buf = (uint16_t *)(VGA_TEXT_BUF_START + 0xC0000000);
+static uint16_t *vga_text_buf = (uint16_t *)VGA_TEXT_BUF_START;
 
 static uint8_t setup_colour_attr(uint8_t foreground, uint8_t background) {
 	return (background << 4) | (foreground & 0x0F);
